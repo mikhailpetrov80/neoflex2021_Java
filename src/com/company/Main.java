@@ -1,27 +1,34 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите размер массива: ");
         int SIZE = scanner.nextInt();
+        System.out.println();
+
+        scanner.nextLine();
+        String line = scanner.nextLine();
+        String[] time = line.split(",");
         int[] array = new int[SIZE];
         for (int i = 0; i < SIZE; i++) {
-            array[i] = (int) (Math.random() * 10);
-            System.out.print(array[i] + ", ");
+            array[i] = Integer.parseInt(time[i]);
         }
 
         System.out.println();
 
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = i + 1; j < SIZE; j++) {
-                if (array[i] == array[j]) {
-                    System.out.println("Повторяющееся число " + array[j] + " индекс " + j + ".");
-                }
+        Arrays.sort(array);
+
+        int count = 0;
+        for (int i = 0; i < SIZE - 1; i++) {
+            if (array[i] == array[i + 1]) {
+                count++;
             }
+
         }
+        System.out.println(count);
     }
 }
