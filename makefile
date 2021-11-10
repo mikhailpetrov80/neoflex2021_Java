@@ -1,3 +1,5 @@
-build: javac Main.java
+build: 
+        javac com.company.Main.java
 
-run: java com.company.Main
+run: 
+        java com.company.Main
